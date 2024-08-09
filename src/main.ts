@@ -52,16 +52,18 @@ function onSubmit() {
     options.lowColor = lowColor
   }
 
+  const element = document.getElementById('div-result') as HTMLDivElement
+
   try {
     const resultColor = findContrastColor(options)
-    document.getElementById('div-result')!.style.backgroundColor = options.color
-    document.getElementById('div-result')!.style.color = resultColor
-    document.getElementById('div-result')!.textContent = `${resultColor}`
+    element.style.backgroundColor = options.color
+    element.style.color = resultColor
+    element.textContent = `${resultColor}`
   } catch (err) {
     console.error(err)
-    document.getElementById('div-result')!.style.backgroundColor = 'red'
-    document.getElementById('div-result')!.style.color = 'white'
-    document.getElementById('div-result')!.textContent = 'Invalid color format'
+    element.style.backgroundColor = 'red'
+    element.style.color = 'white'
+    element.textContent = 'Invalid color format'
   }
 }
 
@@ -71,9 +73,10 @@ document.getElementById('input-color')?.addEventListener(
     const target = event.target as HTMLInputElement
     const colorValue = target?.value ?? ''
     if (!colorValue) {
-      document.getElementById('div-result')!.style.backgroundColor = 'black'
-      document.getElementById('div-result')!.style.color = 'white'
-      document.getElementById('div-result')!.textContent = 'Input Color'
+      const element = document.getElementById('div-result') as HTMLDivElement
+      element.style.backgroundColor = 'black'
+      element.style.color = 'white'
+      element.textContent = 'Input Color'
       return
     }
 
@@ -106,21 +109,3 @@ document.getElementById('input-low-color')?.addEventListener(
     onSubmit()
   }, DEFAULT_INPUT_DELAY)
 )
-
-// Example usage
-const options: ContrastColorOptions = {
-  color: 'rgba(100, 150, 200, 0.8)', // or hex color like '#1E90FF'
-  threshold: 0.5,
-  highColor: 'white',
-  lowColor: 'black'
-}
-
-const contrastColor = findContrastColor(options)
-console.log(contrastColor) // Output: 'white' or 'black' based on luminance
-
-findContrastColor({
-  color: '#ff5733',
-  threshold: 0.5,
-  highColor: '#000000', // 명도 높을 때 색상
-  lowColor: '#FFFFFF' // 명도 낮을 때 색상
-})
