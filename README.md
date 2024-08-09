@@ -50,5 +50,5 @@ console.log(contrastColor); // 'black' or 'white'
 
 ## License
 
-<!-- [MIT](LICENSE). -->
+[MIT](LICENSE).
 
