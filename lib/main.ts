@@ -7,7 +7,6 @@ import type { ContrastColorOptions, RGBAColor } from './types'
  * @returns {RGBAColor} RGB values
  */
 function hexToRgb(hex: string): RGBAColor {
-  // HEX 코드 유효성 검사 (3자리 또는 6자리만 허용)
   const validHex = /^#?([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/
 
   if (!validHex.test(hex)) {
@@ -130,7 +129,3 @@ export function findContrastColor(options: ContrastColorOptions): string {
 }
 
 export type { ContrastColorOptions, RGBAColor }
-
-export type Test = {
-  name: string
-}
