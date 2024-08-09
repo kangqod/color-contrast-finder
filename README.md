@@ -26,6 +26,7 @@ $ pnpm add contrast-color-finder
 ```
 
 ## Usage
+
 ```javascript
 import { findContrastColor } from 'color-contrast-finder';
 
@@ -55,6 +56,6 @@ console.log(contrastColor); // 'black' or 'white'
 
 ## TODO
 
-- [ ] changesets & 버전 관리
+- [ ] changesets setup
 - [ ] CI (lint)
 - [ ] CD (npm publish)

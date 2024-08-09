@@ -17,6 +17,7 @@
     "dist",
     "index.d.ts"
   ],
+  "keywords": ["color-contrast", "color-contrast-finder"],
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
