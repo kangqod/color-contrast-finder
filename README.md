@@ -81,7 +81,30 @@ console.log(contrastColor); // 'black' or 'white'
 
 ## TODO
 
-- [ ] npm publish
-- [ ] changesets setup
-- [ ] CI (lint)
-- [ ] CD (npm publish)
+- [x] Function findContrastColor
+- [x] Library build
+- [x] Changesets setup
+- [x] CI (lint)
+- [x] CD (npm publish)
+
+- [ ] NPM publish
+- [ ] NPM_TOKEN Expire (2040-12-31)
+
+<br>
+
+## How to use publish
+
+```bash
+# 1. pnpm changeset
+$ pnpm cs
+
+# 2. Input next version
+
+# 3. New file created in the .changeset folder
+
+# 4. Commit & push new files
+
+# 5. Automatically generate, merge, and publish PRs with CD jobs running. 
+```
+
+<br>

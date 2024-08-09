@@ -16,6 +16,12 @@ runs:
         node-version-file: '.nvmrc'
         cache: 'pnpm'
 
+    - name: Set up Git user
+      shell: bash
+      run: |
+        git config --global user.name "Chad.K"
+        git config --global user.email "kangqod@naver.com"
+
     - name: Install dependencies with custom settings
       shell: bash
       run: pnpm install --verbose
