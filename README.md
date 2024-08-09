@@ -4,6 +4,7 @@
 
 The **Contrast Color Finder** is a library that automatically selects text colors that contrast with a given color. The library supports a variety of color formats (HEX, RGB, RGBA) and allows for user-defined thresholds and default color settings.
 
+
 ## Features
 
 - Support for HEX, RGB, and RGBA color formats
@@ -11,6 +12,7 @@ The **Contrast Color Finder** is a library that automatically selects text color
 - Support for user-defined brightness thresholds
 - Customizable for high and low brightness colors
 - Easy to use and flexible settings
+
 
 ## Installation
 
@@ -24,6 +26,7 @@ $ yarn add contrast-color-finder
 # with pnpm
 $ pnpm add contrast-color-finder
 ```
+
 
 ## Usage
 
@@ -46,7 +49,6 @@ const options = {
 const contrastColor = findContrastColor(options);
 console.log(contrastColor); // 'black' or 'white'
 ```
-
 
 
 ## License

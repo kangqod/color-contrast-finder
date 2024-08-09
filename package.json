@@ -1,6 +1,6 @@
 {
   "name": "contrast-color-finder",
-  "description": "",
+  "description": "The Contrast Color Finder is a library that automatically selects text colors that contrast with a given color.",
   "version": "1.0.0",
   "author": "Chad.K <kangqod@naver.com>",
   "repository": {
