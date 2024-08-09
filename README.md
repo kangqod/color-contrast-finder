@@ -4,6 +4,7 @@
 
 The **Contrast Color Finder** is a library that automatically selects text colors that contrast with a given color. The library supports a variety of color formats (HEX, RGB, RGBA) and allows for user-defined thresholds and default color settings.
 
+<br>
 
 ## Features
 
@@ -13,6 +14,7 @@ The **Contrast Color Finder** is a library that automatically selects text color
 - Customizable for high and low brightness colors
 - Easy to use and flexible settings
 
+<br>
 
 ## Installation
 
@@ -27,10 +29,12 @@ $ yarn add contrast-color-finder
 $ pnpm add contrast-color-finder
 ```
 
+<br>
 
 ## Usage
 
 ```javascript
+// module
 import { findContrastColor } from 'color-contrast-finder';
 
 /**
@@ -50,6 +54,18 @@ const contrastColor = findContrastColor(options);
 console.log(contrastColor); // 'black' or 'white'
 ```
 
+```javascript
+// umd
+
+/**
+ * html code
+ * <script type="text/javascript" src="{path}/contrast-color-finder.umd.cjs"></script>
+ */ 
+
+ const contrastColor = window['contrast-color-finder'].findContrastColor(options);
+ console.log(contrastColor); // 'black' or 'white'
+```
+
 <br>
 
 ![alt text](https://github.com/user-attachments/assets/2752c37e-aea0-43b5-b8e8-ccfb9ad3f064)
@@ -61,6 +77,7 @@ console.log(contrastColor); // 'black' or 'white'
 
 [MIT](LICENSE).
 
+<br>
 
 ## TODO
 

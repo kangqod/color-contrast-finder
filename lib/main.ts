@@ -124,7 +124,6 @@ export function findContrastColor(options: ContrastColorOptions): string {
   const luminance = getLuminance({ r, g, b })
   const backgroundLuminance = calculateBackgroundLuminance(a, luminance)
 
-  console.log('threshold : ', threshold)
   return getContrastColor(backgroundLuminance, threshold, highColor, lowColor)
 }
 

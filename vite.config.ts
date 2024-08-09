@@ -14,7 +14,7 @@ export default defineConfig({
     lib: {
       entry: './lib/main.ts',
       name: 'contrast-color-finder',
-      fileName: 'index'
+      fileName: 'contrast-color-finder'
     }
   },
   test: {
