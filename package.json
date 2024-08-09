@@ -12,6 +12,10 @@
     "url": "https://github.com/kangqod/contrast-color-finder.git/issues"
   },
   "homepage": "https://github.com/kangqod/contrast-color-finder.git#readme",
+  "engines": {
+    "node": ">=20.14.0",
+    "pnpm": ">=9.4.0"
+  },
   "type": "module",
   "files": [
     "dist",
@@ -31,9 +35,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint": "eslint ./lib ./src --cache",
     "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier --check ./lib ./src --cache",
+    "format:write": "prettier --write ./lib ./src --cache",
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
