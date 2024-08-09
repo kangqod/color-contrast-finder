@@ -1,0 +1,52 @@
+{
+  "name": "contrast-color-finder",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Chad.K <kangqod@naver.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangqod/contrast-color-finder.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kangqod/contrast-color-finder.git/issues"
+  },
+  "homepage": "https://github.com/kangqod/contrast-color-finder.git#readme",
+  "type": "module",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "eslint": "9.x",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^4.0.1",
+    "vitest": "^2.0.5"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+build/
+coverage/
+dist/
+dts/
+*.md
+package.json
+pnpm-lock.yaml
+tsconfig.json
+*.d.ts
