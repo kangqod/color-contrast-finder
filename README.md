@@ -52,3 +52,9 @@ console.log(contrastColor); // 'black' or 'white'
 
 [MIT](LICENSE).
 
+
+## TODO
+
+- [ ] changesets & 버전 관리
+- [ ] CI (lint)
+- [ ] CD (npm publish)
