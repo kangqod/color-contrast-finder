@@ -58,6 +58,7 @@ console.log(contrastColor); // 'black' or 'white'
 
 ## TODO
 
+- [ ] npm publish
 - [ ] changesets setup
 - [ ] CI (lint)
 - [ ] CD (npm publish)
