@@ -50,6 +50,12 @@ const contrastColor = findContrastColor(options);
 console.log(contrastColor); // 'black' or 'white'
 ```
 
+<br>
+
+![alt text](https://github.com/user-attachments/assets/2752c37e-aea0-43b5-b8e8-ccfb9ad3f064)
+
+<br>
+
 
 ## License
 
