@@ -5,7 +5,7 @@ on:
     paths:
       - '.changeset/**'
     branches:
-      - main
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
