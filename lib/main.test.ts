@@ -71,4 +71,11 @@ describe('findContrastColor', () => {
     }
     expect(findContrastColor(options)).toBe(KEY_COLORS.BLACK)
   })
+
+  it('should convert named CSS color', () => {
+    const options = {
+      color: 'black'
+    }
+    expect(findContrastColor(options)).toBe(KEY_COLORS.WHITE)
+  })
 })

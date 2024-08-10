@@ -1,12 +1,12 @@
 import './style.css'
 import { findContrastColor } from '../lib/main'
 import { DEFAULT_INPUT_DELAY } from '../lib/constants'
-import type { ContrastColorOptions } from '../lib/types'
+import type { ColorContrastOptions } from '../lib/types'
 import { debounce } from './debounce'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <h1>Contrast Color Finder</h1>
+    <h1>Color Contrast Finder</h1>
     <div class="card">
       <div class="flex">
         <label for="input-color">Input Color</label>
@@ -38,7 +38,7 @@ function onSubmit() {
   const { value: highColor } = document.getElementById('input-high-color') as HTMLInputElement
   const { value: lowColor } = document.getElementById('input-low-color') as HTMLInputElement
 
-  const options: ContrastColorOptions = {
+  const options: ColorContrastOptions = {
     color
   }
 

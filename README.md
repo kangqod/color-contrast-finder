@@ -1,8 +1,8 @@
-# Contrast Color Finder
+# Color Contrast Finder
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The **Contrast Color Finder** is a library that automatically selects text colors that contrast with a given color. The library supports a variety of color formats (HEX, RGB, RGBA) and allows for user-defined thresholds and default color settings.
+The **Color Contrast Finder** is a library that automatically selects text colors that contrast with a given color. The library supports a variety of color formats (HEX, RGB, RGBA) and allows for user-defined thresholds and default color settings.
 
 <br>
 
@@ -20,13 +20,13 @@ The **Contrast Color Finder** is a library that automatically selects text color
 
 ```bash
 # with npm
-$ npm i contrast-color-finder
+$ npm i color-contrast-finder
 
 # with Yarn
-$ yarn add contrast-color-finder
+$ yarn add color-contrast-finder
 
 # with pnpm
-$ pnpm add contrast-color-finder
+$ pnpm add color-contrast-finder
 ```
 
 <br>
@@ -38,10 +38,13 @@ $ pnpm add contrast-color-finder
 import { findContrastColor } from 'color-contrast-finder';
 
 /**
- * options
- *   color: #ffffff
- *   color: rgba(255, 255, 255)
- *   color: rgba(255, 255, 255, 0.3)
+ * `options.color` types:
+ *   - `#f00`    // rgba(255, 0, 0, 1)  (Short hex code with no alpha channel)
+ *   - `#f00f`   // rgba(255, 0, 0, 1)  (Short hex code with alpha channel)
+ *   - `#ffffff` // rgba(255, 255, 255, 1)  (Full hex code with no alpha channel)
+ *   - `#ffffffff` // rgba(255, 255, 255, 1)  (Full hex code with alpha channel)
+ *   - `rgb(255, 255, 255)` // rgba(255, 255, 255, 1)  (RGB color with no alpha channel)
+ *   - `rgba(255, 255, 255, 0.3)` // rgba(255, 255, 255, 0.3)  (RGBA color with alpha channel)
  */
 const options = {
   color: '#3498db', // input color (in HEX, RGB, RGBA format)
@@ -59,10 +62,10 @@ console.log(contrastColor); // 'black' or 'white'
 
 /**
  * html code
- * <script type="text/javascript" src="{path}/contrast-color-finder.umd.cjs"></script>
+ * <script type="text/javascript" src="{path}/color-contrast-finder.umd.cjs"></script>
  */ 
 
- const contrastColor = window['contrast-color-finder'].findContrastColor(options);
+ const contrastColor = window['color-contrast-finder'].findContrastColor(options);
  console.log(contrastColor); // 'black' or 'white'
 ```
 
@@ -86,9 +89,7 @@ console.log(contrastColor); // 'black' or 'white'
 - [x] Changesets setup
 - [x] CI (lint)
 - [x] CD (npm publish)
-
-- [ ] NPM publish
-- [ ] NPM_TOKEN Expire (2040-12-31)
+- [x] NPM publish
 
 <br>
 

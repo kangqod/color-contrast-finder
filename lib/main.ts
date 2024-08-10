@@ -1,13 +1,16 @@
-import { KEY_COLORS, DEFAULT_OPACITY } from './constants'
-import type { ContrastColorOptions, RGBAColor } from './types'
+import { KEY_COLORS, DEFAULT_OPACITY, CSS_COLORS } from './constants'
+import type { ColorContrastOptions, InputColor, RGBAColor } from './types'
 
 /**
- * Converts HEX color code to RGB.
- * @param {string} hex - HEX color code (3 or 6 digits)
- * @returns {RGBAColor} RGB values
+ * Converts a HEX color code to an RGBA color object.
+ * Supports 3-digit (#RGB), 4-digit (#RGBA), 6-digit (#RRGGBB), and 8-digit (#RRGGBBAA) HEX codes.
+ *
+ * @param {string} hex - The HEX color code, which may include an optional alpha channel.
+ * @returns {RGBAColor} An object containing the red, green, blue, and alpha (RGBA) values.
+ * @throws {Error} If the provided HEX color code is invalid.
  */
 function hexToRgb(hex: string): RGBAColor {
-  const validHex = /^#?([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/
+  const validHex = /^#?([a-fA-F0-9]{3}|[a-fA-F0-9]{4}|[a-fA-F0-9]{6}|[a-fA-F0-9]{8})$/
 
   if (!validHex.test(hex)) {
     throw new Error('Invalid HEX color code')
@@ -55,10 +58,16 @@ function parseRgb(rgbString: string): RGBAColor | null {
 
 /**
  * Converts a color string to RGBAColor.
- * @param {string} color - HEX, RGB, or RGBA color value
+ * @param {InputColor} inputColor - css color or HEX or RGB or RGBA color value
  * @returns {RGBAColor} RGBA color values
  */
-function getColorValues(color: string): RGBAColor {
+function getColorValues(inputColor: InputColor): RGBAColor {
+  let color = inputColor.trim().toLowerCase()
+
+  if (color in CSS_COLORS) {
+    color = CSS_COLORS[color as keyof typeof CSS_COLORS]
+  }
+
   if (color.startsWith('#')) {
     return hexToRgb(color)
   } else if (color.startsWith('rgb')) {
@@ -114,10 +123,10 @@ function getContrastColor(luminance: number, threshold: number, highColor: strin
 
 /**
  * Finds the best contrast color for text based on the provided options.
- * @param {ContrastColorOptions} options - Configuration for contrast color selection
+ * @param {ColorContrastOptions} options - Configuration for contrast color selection
  * @returns {string} Best contrast color for the text
  */
-export function findContrastColor(options: ContrastColorOptions): string {
+export function findContrastColor(options: ColorContrastOptions): string {
   const { color, threshold = 0.5, highColor = KEY_COLORS.BLACK, lowColor = KEY_COLORS.WHITE } = options
 
   const { r, g, b, a } = getColorValues(color)
@@ -127,4 +136,4 @@ export function findContrastColor(options: ContrastColorOptions): string {
   return getContrastColor(backgroundLuminance, threshold, highColor, lowColor)
 }
 
-export type { ContrastColorOptions, RGBAColor }
+export type { ColorContrastOptions, RGBAColor }

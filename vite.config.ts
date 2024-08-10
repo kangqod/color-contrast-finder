@@ -13,12 +13,9 @@ export default defineConfig({
     emptyOutDir: true,
     lib: {
       entry: './lib/main.ts',
-      name: 'contrast-color-finder',
-      fileName: 'contrast-color-finder'
+      name: 'color-contrast-finder',
+      fileName: 'color-contrast-finder'
     }
-  },
-  test: {
-    globals: true
   },
   server: {
     open: true

@@ -1,17 +1,17 @@
 {
-  "name": "contrast-color-finder",
-  "description": "The Contrast Color Finder is a library that automatically selects text colors that contrast with a given color.",
+  "name": "color-contrast-finder",
+  "description": "The Color Contrast Finder is a library that automatically selects text colors that contrast with a given color.",
   "version": "0.1.0",
   "author": "Chad.K <kangqod@naver.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kangqod/contrast-color-finder.git"
+    "url": "git+https://github.com/kangqod/color-contrast-finder.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kangqod/contrast-color-finder.git/issues"
+    "url": "https://github.com/kangqod/color-contrast-finder.git/issues"
   },
-  "homepage": "https://github.com/kangqod/contrast-color-finder.git#readme",
+  "homepage": "https://github.com/kangqod/color-contrast-finder.git#readme",
   "engines": {
     "node": ">=20.14.0",
     "pnpm": ">=9.4.0"
@@ -24,16 +24,17 @@
   "keywords": [
     "typescript",
     "color-contrast",
-    "color-contrast-finder"
+    "color-contrast-finder",
+    "color-utils"
   ],
-  "main": "./dist/contrast-color-finder.js",
-  "module": "./dist/contrast-color-finder.umd.cjs",
+  "main": "./dist/color-contrast-finder.js",
+  "module": "./dist/color-contrast-finder.umd.cjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/contrast-color-finder.js",
-      "require": "./dist/contrast-color-finder.umd.cjs"
+      "import": "./dist/color-contrast-finder.js",
+      "require": "./dist/color-contrast-finder.umd.cjs"
     }
   },
   "scripts": {
