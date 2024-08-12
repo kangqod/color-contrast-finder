@@ -3,7 +3,7 @@ name: Quality
 on:
   pull_request:
     branches:
-      - 'main'
+      - 'master'
 
 concurrency:
   group: ci-${{ github.head_ref }}
