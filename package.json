@@ -1,7 +1,7 @@
 {
   "name": "color-contrast-finder",
   "description": "The Color Contrast Finder is a library that automatically selects text colors that contrast with a given color.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "Chad.K <kangqod@naver.com>",
   "repository": {
     "type": "git",
@@ -23,6 +23,10 @@
   ],
   "keywords": [
     "typescript",
+    "color",
+    "contrast",
+    "luminance",
+    "color finder",
     "color-contrast",
     "color-contrast-finder",
     "color-utils"
