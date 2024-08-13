@@ -17,27 +17,41 @@ function hexToRgb(hex: string): RGBAColor {
   }
 
   const cleanedHex = hex.replace(/^#/, '')
-  const expandedHex =
-    cleanedHex.length === 3
-      ? cleanedHex
-          .split('')
-          .map((char) => char + char)
-          .join('')
-      : cleanedHex
 
-  const bigint = parseInt(expandedHex, 16)
-  return {
-    r: (bigint >> 16) & 0xff,
-    g: (bigint >> 8) & 0xff,
-    b: bigint & 0xff,
-    a: DEFAULT_OPACITY
+  let r: number,
+    g: number,
+    b: number,
+    a: number = DEFAULT_OPACITY
+  if (cleanedHex.length === 3 || cleanedHex.length === 4) {
+    // 3 or 4 digit hex
+    r = parseInt(cleanedHex[0] + cleanedHex[0], 16)
+    g = parseInt(cleanedHex[1] + cleanedHex[1], 16)
+    b = parseInt(cleanedHex[2] + cleanedHex[2], 16)
+    if (cleanedHex.length === 4) {
+      a = parseInt(cleanedHex[3] + cleanedHex[3], 16) / 255
+    }
+  } else {
+    // 6 or 8 digit hex
+    r = parseInt(cleanedHex.slice(0, 2), 16)
+    g = parseInt(cleanedHex.slice(2, 4), 16)
+    b = parseInt(cleanedHex.slice(4, 6), 16)
+    if (cleanedHex.length === 8) {
+      a = parseInt(cleanedHex.slice(6, 8), 16) / 255
+    }
   }
+
+  return { r, g, b, a }
 }
 
 /**
  * Parses RGB or RGBA strings to RGBAColor.
  * @param {string} rgbString - RGB or RGBA string
- * @returns {RGBAColor | null} RGBA values or null if parsing fails
+ * @returns {RGBAColor} RGBA values or null if parsing fails
+ *
+ * @note If the input is an RGB string without an alpha channel, the alpha value
+ *       is set to a default value of `DEFAULT_OPACITY`.
+ *
+ * @throws {Error} If the provided RGB string is invalid.
  */
 function parseRgb(rgbString: string): RGBAColor | null {
   const regex = /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d*\.?\d+))?\)/
@@ -52,6 +66,7 @@ function parseRgb(rgbString: string): RGBAColor | null {
     r: parseInt(r, 10),
     g: parseInt(g, 10),
     b: parseInt(b, 10),
+    // Use DEFAULT_OPACITY if alpha is not provided (i.e., RGB format without alpha)
     a: a ? parseFloat(a) : DEFAULT_OPACITY
   }
 }
