@@ -2,17 +2,26 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The **Color Contrast Finder** is a library that automatically selects text colors that contrast with a given color. The library supports a variety of color formats (HEX, RGB, RGBA) and allows for user-defined thresholds and default color settings.
+The **Color Contrast Finder** is a JavaScript library designed to automatically select text colors that provide sufficient contrast with a given background color. The library supports various color formats, such as HEX, RGB, and RGBA, and also allows for user-defined thresholds and customizable default color settings. In addition, it now supports CSS color names, making it more versatile and easy to use.
+
+https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
 
 <br>
 
 ## Features
 
-- Support for HEX, RGB, and RGBA color formats
-- Color contrast calculation taking into account transparency (Alpha)
-- Support for user-defined brightness thresholds
-- Customizable for high and low brightness colors
-- Easy to use and flexible settings
+- **Support for HEX, RGB, and RGBA color formats**   
+Easily handle different color formats for flexible color manipulation.
+- **Color contrast calculation with transparency (Alpha)**   
+Accurately calculates contrast by considering alpha transparency, ensuring that the selected text color is always readable.
+- **Support for user-defined brightness thresholds**   
+Customize brightness thresholds to determine when to use high or low contrast colors.
+- **Customizable high and low brightness colors**   
+Define specific colors to use in high or low brightness scenarios for better visual clarity.
+- **CSS Color Names Support**   
+Conveniently use named colors defined in CSS, such as "red", "blue", "green", etc., for quick color application.
+- **Easy to use and flexible settings**   
+The library is designed to be simple to implement while providing flexibility in customization.
 
 <br>
 
@@ -22,7 +31,7 @@ The **Color Contrast Finder** is a library that automatically selects text color
 # with npm
 $ npm i color-contrast-finder
 
-# with Yarn
+# with yarn
 $ yarn add color-contrast-finder
 
 # with pnpm
@@ -33,28 +42,32 @@ $ pnpm add color-contrast-finder
 
 ## Usage
 
+Include the library in your project and use it to determine the best text color for any given background color, ensuring that your web content is accessible and easy to read.
+
 ```javascript
 // module
 import { findContrastColor } from 'color-contrast-finder';
 
 /**
  * `options.color` types:
- *   - `#f00`    // rgba(255, 0, 0, 1)  (Short hex code with no alpha channel)
- *   - `#f00f`   // rgba(255, 0, 0, 1)  (Short hex code with alpha channel)
- *   - `#ffffff` // rgba(255, 255, 255, 1)  (Full hex code with no alpha channel)
- *   - `#ffffffff` // rgba(255, 255, 255, 1)  (Full hex code with alpha channel)
- *   - `rgb(255, 255, 255)` // rgba(255, 255, 255, 1)  (RGB color with no alpha channel)
- *   - `rgba(255, 255, 255, 0.3)` // rgba(255, 255, 255, 0.3)  (RGBA color with alpha channel)
+ *   - `#f00`        // Short HEX code (no alpha), interpreted as #ff0000 (RGB: 255, 0, 0)
+ *   - `#f00f`       // Short HEX code with alpha, interpreted as #ff0000 with 100% opacity (RGBA: 255, 0, 0, 1)
+ *   - `#ffffff`     // Full HEX code (no alpha), interpreted as RGB: 255, 255, 255
+ *   - `#ffffffff`   // Full HEX code with alpha, interpreted as RGBA: 255, 255, 255, 1
+ *   - `rgb(255, 255, 255)`   // RGB function, interpreted as RGB: 255, 255, 255
+ *   - `rgba(255, 255, 255, 0.3)` // RGBA function, interpreted as RGBA: 255, 255, 255, 0.3
+ *   - `'red'`       // CSS color name, interpreted as the corresponding color (e.g., 'red' = RGB: 255, 0, 0)
  */
+const backgroundColor = '#3498db';
 const options = {
-  color: '#3498db', // input color (in HEX, RGB, RGBA format)
-  threshold: 0.5, // brightness threshold (default: 0.5)
-  highColor: 'black', // text color to use when high brightness  (default: #000000)
-  lowColor: 'white' // text color to use when low brightness (default: #FFFFFF)
+  color: backgroundColor, // The input color (HEX, RGB, RGBA, or CSS color name)
+  threshold: 0.5, // The brightness threshold to decide between highColor and lowColor (default: 0.5)
+  highColor: 'black', // Text color to use when brightness is above the threshold (default: #000000)
+  lowColor: 'white'   // Text color to use when brightness is below the threshold (default: #FFFFFF)
 };
 
 const contrastColor = findContrastColor(options);
-console.log(contrastColor); // 'black' or 'white'
+console.log(contrastColor); // Outputs 'black' or 'white' depending on the contrast
 ```
 
 ```javascript
@@ -63,10 +76,18 @@ console.log(contrastColor); // 'black' or 'white'
 /**
  * html code
  * <script type="text/javascript" src="{path}/color-contrast-finder.umd.cjs"></script>
- */ 
+ */
+
+const backgroundColor = '#3498db';
+const options = {
+  color: backgroundColor,
+  threshold: 0.5,
+  highColor: 'black',
+  lowColor: 'white'
+};
 
  const contrastColor = window['color-contrast-finder'].findContrastColor(options);
- console.log(contrastColor); // 'black' or 'white'
+ console.log(contrastColor); // Outputs 'black' or 'white' depending on the contrast
 ```
 
 <br>
@@ -93,7 +114,7 @@ console.log(contrastColor); // 'black' or 'white'
 
 <br>
 
-## How to use publish
+## How to use publish (About me)
 
 ```bash
 # 1. pnpm changeset
