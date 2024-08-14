@@ -1,5 +1,11 @@
 # color-contrast-finder
 
+## 1.0.2
+
+### Patch Changes
+
+- 4b53177: Update README.md
+
 ## 1.0.1
 
 ### Patch Changes
