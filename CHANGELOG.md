@@ -1,5 +1,11 @@
 # color-contrast-finder
 
+## 1.0.3
+
+### Patch Changes
+
+- 7e49d89: Update library
+
 ## 1.0.2
 
 ### Patch Changes
