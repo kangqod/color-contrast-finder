@@ -36,8 +36,8 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-  eslint:
-    name: ESLint
+  lint:
+    name: Biome lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -46,12 +46,12 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - name: Run ESLint
+      - name: Run lint
         run: pnpm lint
         continue-on-error: true
 
-  prettier:
-    name: Prettier
+  format:
+    name: Biome format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -60,5 +60,5 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
-      - name: Run prettier
+      - name: Run format
         run: pnpm format:check

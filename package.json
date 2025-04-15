@@ -44,11 +44,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint ./lib ./src --cache",
+    "lint": "biome lint ./src ./lib",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "format:check": "prettier --check ./lib ./src --cache",
-    "format:write": "prettier --write ./lib ./src --cache",
+    "format": "pnpm biome format --write ./src ./lib",
     "coverage": "vitest run --coverage",
     "cs": "changeset",
     "cs-v": "changeset version",
@@ -59,20 +58,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.7"
+    "@changesets/cli": "^2.29.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
-    "eslint": "9.x",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.9.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.0.1",
-    "vite": "^5.2.10",
-    "vite-plugin-dts": "^4.0.1",
-    "vitest": "^2.0.5"
+    "@biomejs/biome": "1.9.4",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.6",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.1"
   }
 }

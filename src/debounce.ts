@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Debounce function to limit the rate at which a function is executed
  * @param {Function} func - The function to debounce
