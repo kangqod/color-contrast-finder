@@ -121,12 +121,20 @@ const options = {
 $ pnpm cs
 
 # 2. Input next version
+# ex) 1.0.4 (2025-05-02)
 
 # 3. New file created in the .changeset folder
 
-# 4. Commit & push new files
+# 4. Update *.md file
+# ex) Refactored development dependencies and updated tooling:
+#     - Moved `@changesets/cli` to `devDependencies` to keep production builds clean.
+#     - Upgraded `vite` to address known security vulnerabilities.
+#     - Updated `vitest` to the latest version for improved test stability and compatibility.
 
-# 5. Automatically generate, merge, and publish PRs with CD jobs running. 
+# 5. Commit & push new files
+# ex) release: v1.0.4
+
+# 6. Automatically generate, merge, and publish PRs with CD jobs running. 
 ```
 
 <br>
