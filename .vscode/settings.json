@@ -4,13 +4,26 @@
     "**/.git": true,
     "**/.DS_Store": true
   },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.git/**": true,
+    "**/.swc/**": true
+  },
   "editor.tabSize": 2,
+  "prettier.enable": false,
+  "eslint.enable": false,
+  "eslint.format.enable": false,
+  "biome.enabled": true,
+  "biome.configurationPath": "./biome.json",
+  "biome.lsp.bin": "./node_modules/.bin/biome",
   "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
   },
   "[json]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[typescript]": {
     "editor.formatOnSave": true,
