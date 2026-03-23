@@ -43,7 +43,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && pnpm type:build",
+    "type:build": "tsc -p tsconfig.types.json",
     "lint": "biome lint ./src ./lib",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
@@ -63,7 +64,6 @@
     "globals": "^16.0.0",
     "typescript": "^5.8.3",
     "vite": "^7.1.2",
-    "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.1.2"
   }
 }
