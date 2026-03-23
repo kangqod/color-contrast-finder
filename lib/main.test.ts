@@ -62,6 +62,22 @@ describe('findContrastColor', () => {
     ).toThrow('Invalid color format')
   })
 
+  it('should reject rgb channel out of range', () => {
+    expect(() =>
+      findContrastColor({
+        color: 'rgb(256, 0, 0)'
+      })
+    ).toThrow('Invalid RGB color code')
+  })
+
+  it('should reject alpha channel out of range', () => {
+    expect(() =>
+      findContrastColor({
+        color: 'rgba(0, 0, 0, 1.2)'
+      })
+    ).toThrow('Invalid RGB color code')
+  })
+
   it('should handle rgba color with transparency correctly', () => {
     const options = {
       color: 'rgba(0, 0, 255, 0.3)',

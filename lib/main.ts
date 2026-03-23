@@ -54,20 +54,43 @@ function hexToRgb(hex: string): RGBAColor {
  * @throws {Error} If the provided RGB string is invalid.
  */
 function parseRgb(rgbString: string): RGBAColor | null {
-  const regex = /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d*\.?\d+))?\)/
-  const match = regex.exec(rgbString)
-
-  if (!match) {
+  const normalized = rgbString.trim()
+  const isRgb = normalized.startsWith('rgb(') && normalized.endsWith(')')
+  const isRgba = normalized.startsWith('rgba(') && normalized.endsWith(')')
+  if (!isRgb && !isRgba) {
     throw new Error('Invalid RGB color code')
   }
 
-  const [, r, g, b, a] = match
+  const rawValues = normalized.slice(normalized.indexOf('(') + 1, -1).split(',')
+  if ((isRgb && rawValues.length !== 3) || (isRgba && rawValues.length !== 4)) {
+    throw new Error('Invalid RGB color code')
+  }
+
+  const parseRgbChannel = (value: string): number => {
+    const parsed = Number(value.trim())
+    if (!Number.isInteger(parsed) || parsed < 0 || parsed > 255) {
+      throw new Error('Invalid RGB color code')
+    }
+    return parsed
+  }
+
+  const parseAlphaChannel = (value: string | undefined): number => {
+    if (value == null) {
+      return DEFAULT_OPACITY
+    }
+    const parsed = Number(value.trim())
+    if (!Number.isFinite(parsed) || parsed < 0 || parsed > 1) {
+      throw new Error('Invalid RGB color code')
+    }
+    return parsed
+  }
+
+  const [r, g, b, a] = rawValues
   return {
-    r: parseInt(r, 10),
-    g: parseInt(g, 10),
-    b: parseInt(b, 10),
-    // Use DEFAULT_OPACITY if alpha is not provided (i.e., RGB format without alpha)
-    a: a ? parseFloat(a) : DEFAULT_OPACITY
+    r: parseRgbChannel(r),
+    g: parseRgbChannel(g),
+    b: parseRgbChannel(b),
+    a: parseAlphaChannel(a)
   }
 }
 
