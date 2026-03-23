@@ -1,5 +1,11 @@
 # color-contrast-finder
 
+## 1.0.6
+
+### Patch Changes
+
+- 58be9de: replace rgb regex parsing to mitigate ReDoS warning
+
 ## 1.0.5
 
 ### Patch Changes
