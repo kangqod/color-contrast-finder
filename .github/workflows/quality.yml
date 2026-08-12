@@ -50,7 +50,6 @@ jobs:
 
       - name: Run lint
         run: pnpm lint
-        continue-on-error: true
 
   format:
     name: Biome format
@@ -63,4 +62,4 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Run format
-        run: pnpm format
+        run: pnpm biome format ./src ./lib

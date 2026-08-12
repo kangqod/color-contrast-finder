@@ -28,6 +28,7 @@ jobs:
 
   release:
     name: Release
+    needs: tests
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -46,11 +47,10 @@ jobs:
 
       - name: Create release Pull Request or publish to NPM
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
-          publish: pnpm release
-          commit: 'ci(changesets): version packages'
-          setupGitUser: false
+          publish-script: pnpm release
+          commit-message: 'ci(changesets): version packages'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
