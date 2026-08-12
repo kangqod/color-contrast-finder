@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 
 .pnpm-store/
+
+# oh-my-claudecode local state
+.omc/

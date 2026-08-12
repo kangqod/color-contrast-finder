@@ -15,9 +15,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -28,9 +29,10 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install
         uses: ./.github/composite-actions/install
@@ -41,26 +43,27 @@ jobs:
   lint:
     name: Biome lint
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Run lint
         run: pnpm lint
-        continue-on-error: true
 
   format:
     name: Biome format
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Run format
-        run: pnpm format
+        run: pnpm biome format ./src ./lib

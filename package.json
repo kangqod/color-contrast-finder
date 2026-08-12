@@ -13,8 +13,8 @@
   },
   "homepage": "https://github.com/kangqod/color-contrast-finder.git#readme",
   "engines": {
-    "node": ">=20.14.0",
-    "pnpm": ">=9.4.0"
+    "node": ">=24.13.0",
+    "pnpm": ">=11.13.0"
   },
   "type": "module",
   "files": [
@@ -52,17 +52,17 @@
     "coverage": "vitest run --coverage",
     "cs": "changeset",
     "cs-v": "changeset version",
-    "cs-t": "changeset tag",
+    "cs-t": "changeset git-tag",
     "release": "changeset publish"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.16",
-    "@changesets/cli": "^2.29.6",
+    "@biomejs/biome": "2.5.7",
+    "@changesets/cli": "^3.0.0",
     "globals": "^17.6.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vite": "^8.0.16",
     "vitest": "^4.1.8"
   }
