@@ -15,6 +15,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
         uses: actions/checkout@v5
@@ -28,6 +29,7 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
         uses: actions/checkout@v5
@@ -41,6 +43,7 @@ jobs:
   lint:
     name: Biome lint
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v5
@@ -54,6 +57,7 @@ jobs:
   format:
     name: Biome format
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout branch
         uses: actions/checkout@v5
