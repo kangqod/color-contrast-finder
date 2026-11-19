@@ -59,11 +59,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.7",
-    "@changesets/cli": "^3.0.0",
-    "globals": "^17.6.0",
+    "@biomejs/biome": "2.6.8",
+    "@changesets/cli": "^3.0.3",
+    "globals": "^17.14.0",
     "typescript": "^7.0.2",
-    "vite": "^8.0.16",
-    "vitest": "^5.0.4"
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
   }
 }
